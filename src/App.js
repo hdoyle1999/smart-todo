@@ -5,23 +5,28 @@ import Navbar from './Navbar';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom'
 import Calendar from './Calendar';
 import Blogs from './Blogs';
+import ToDo from './ToDo';
 
 
 function App() {
   return (
     <div className="App">
       <Router>
-        <Navbar />    
-        {/* Content below will display from the resepctive react components */}
         <div className="content">
           <Switch>
             <Route exact path="/">
               <Home />
             </Route>
+            <Route path="/todo">
+              <Navbar />  
+              <ToDo />
+            </Route>
             <Route path="/calender">
+              <Navbar />  
               <Calendar />
             </Route>
             <Route path="/blogs">
+            <Navbar />  
               <Blogs />
             </Route>
           </Switch>

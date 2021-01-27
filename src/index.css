@@ -33,7 +33,20 @@
   padding: 30px;
 }
 
-.home h1{
+.home-container{
+  height : 65vh;
+  display : flex;
+  flex-direction: row;
+}
+
+.home-container-elements{   
+  height: 100%;
+  flex: 1;
+  box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
+  margin-right: 5%;
+}
+
+.todo h1{
   color: #ff5a51;
 }
 
