@@ -1,17 +1,39 @@
-const ToDo = () => {
+import React from 'react';
+import { connect } from 'react-redux';
+
+const handleAdd = () => {
+    console.log("Button Clicked fuck yeah");
+}
+
+const ToDo = (props) => {
+    console.log(props);
     return ( 
         <div className="todo" >
-            <h1>ToDo Page</h1>
             <div className="page-content">
                 <div className="container-content">
-                    <div className="todo-container">
-                        <h1>From your calender</h1>
-                        <p>This will display what is in the calender</p>
-                    </div>
-                    <div className="todo-container">
-                        <h1>From your ToDo</h1>
-                        <p> This will display what is on the todo</p>
-                    </div>
+                <h1><u>Your To-Do List</u><button onClick={handleAdd}>Add Item</button></h1>
+                <div className="vertical-menu">
+                    <ul>
+                        {props.todos.map(item => {
+                            return <li><h3>{item["title"]}</h3>{item["where"]}</li> ;      
+                        })}
+                    </ul> 
+                </div>
+                {/* <div className="todo-container">
+                    <ul>
+                        {props.todos.map(item => {
+                            return <li><h3>{item["title"]}</h3>{item["where"]}</li> ;      
+                        })}
+                    </ul> 
+                </div> */}
+                <div className="vertical-menu">
+                    <h1><u>Your Calendar</u></h1>
+                    <ul>
+                        {props.calendar.map(item => {
+                            return <li><h3>{item["title"]}</h3>{item["where"] + " " + item["when"]}</li> ;      
+                        })}
+                    </ul>      
+                </div>
                 </div>
                 <div className="sidebar">
                     <h1>Your sidebar</h1>
@@ -22,4 +44,10 @@ const ToDo = () => {
      );
 }
  
-export default ToDo;
+const mapStateToProps = (state) => {
+    return {
+        todos: state.todo.todos,
+        calendar: state.calendar.items
+    }
+}
+export default connect(mapStateToProps)(ToDo);
