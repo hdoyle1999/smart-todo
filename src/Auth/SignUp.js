@@ -19,7 +19,6 @@ class SignUp extends Component {
   render() {
     return (
       <div className="container">
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-beta/css/materialize.min.css"></link>
         <form className="white" onSubmit={this.handleSubmit}>
           <h5 className="grey-text text-darken-3">Sign Up</h5>
           <div className="input-field">

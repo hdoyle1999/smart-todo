@@ -6,7 +6,7 @@ import { BrowserRouter as Router, Route, Switch } from 'react-router-dom'
 import Calendar from './Calendar';
 import Blogs from './Blogs';
 import ToDo from './ToDo';
-
+import CreateToDo from './CreateToDo';
 
 function App() {
   return (
@@ -26,8 +26,12 @@ function App() {
               <Calendar />
             </Route>
             <Route path="/blogs">
-            <Navbar />  
+              <Navbar />  
               <Blogs />
+            </Route>
+            <Route path="/createToDo">
+              <Navbar />  
+              <CreateToDo />
             </Route>
           </Switch>
           

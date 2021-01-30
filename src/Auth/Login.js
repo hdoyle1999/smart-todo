@@ -18,7 +18,7 @@ class Login extends Component {
   render() {
     return (
       <div className="container">
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-beta/css/materialize.min.css"></link> 
+        
         {/*Putting this here as it messes up the nabar in index.html */}
         <form className="white" onSubmit={this.handleSubmit}>
           <h5 className="pink-text text-lighten-1">Sign In</h5>
