@@ -3,11 +3,13 @@ import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
-import { createStore } from 'redux';
+import { createStore, applyMiddleware } from 'redux';
 import rootReducer from './reducers/rootReducer';
 import { Provider } from 'react-redux';
 
-const store = createStore(rootReducer);    //everything in the root reducer will be available in each page.
+import thunk from 'redux-thunk';
+
+const store = createStore(rootReducer, applyMiddleware(thunk));    //everything in the root reducer will be available in each page. Apply thunk as the midleware
 
 ReactDOM.render(
   <React.StrictMode>
