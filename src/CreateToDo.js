@@ -1,4 +1,6 @@
 import React, { Component } from 'react'
+import { connect } from 'react-redux';
+import { createToDo } from './actions/ToDoActions'
 
 class CreateToDo extends Component {
   state = {
@@ -14,12 +16,14 @@ class CreateToDo extends Component {
   }
   handleSubmit = (e) => {
     e.preventDefault();
-    console.log(this.state);
+    //console.log(this.state);
+    this.props.createToDo(this.state);    //call createToDo down below on the values in the form
     //window.location="/ToDo"
   }
   render() {
     return (
       <div className="create-container">
+        {/*TODO: ADD IN A BACK BUTTON HERE, as navabar wqas left out because I like the cleaner look here */}
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-beta/css/materialize.min.css"></link> 
         {/*Putting this here as it messes up the nabar in index.html */}
         <form className="white" onSubmit={this.handleSubmit}>
@@ -49,4 +53,10 @@ class CreateToDo extends Component {
   }
 }
 
-export default CreateToDo;
+const mapDispatchToProps = (dispatch)  => {
+  return {
+    createToDo: (todo) => dispatch(createToDo(todo))    //call the cerate action project, which will then use the actions case method in order to determine what to add to DB
+  }
+}
+
+export default connect(null, mapDispatchToProps)(CreateToDo);

@@ -30,8 +30,7 @@ function App() {
               <Blogs />
             </Route>
             <Route path="/createToDo">
-              <Navbar />  
-              <CreateToDo />
+              <CreateToDo />  {/* Not gonna put the nav bar in this page for  cleaner aesthetic */}
             </Route>
           </Switch>
           

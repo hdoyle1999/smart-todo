@@ -10,7 +10,16 @@ const initState = {
 }
 
 const todoReducer = (state = initState, action) => {
-    return state
+    switch (action.type){
+        case 'CREATE_TODO':     //do this if create_todo is the action that has been recieved, i.e. add to db
+            console.log("Created todo", action.todo);
+            return state;
+        case 'CREATE_ERROR':
+            console.log("Todo failed to create", action.err);
+            return state;
+        default:
+            return state;
+    }
 }
  
 export default todoReducer;
